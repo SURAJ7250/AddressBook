@@ -9,7 +9,7 @@ namespace AddressBookSystem
     internal class AddressBook
     {
         List<Contact> contacts = new List<Contact>();//create a contacts of list
-        Contact contact = new Contact();//create a conatct object
+        Contact storeContact = new Contact();//create storecontact object for delete contact
         public void Addcontact(Contact contact)//open parameterised constructor with contact
         {
             contacts.Add(contact);
@@ -64,6 +64,17 @@ namespace AddressBookSystem
                 }
                 Display();
             }
+        }
+        public void DeleteContact(string name) // delete contact
+        {
+            foreach (var contact in contacts)
+            {
+                if (contact.FirstName == name)
+                {
+                    this.storeContact = contact;
+                }
+            }
+            contacts.Remove(this.storeContact);
         }
     }
 }

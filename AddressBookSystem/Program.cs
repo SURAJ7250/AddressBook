@@ -9,7 +9,7 @@
             while (flag)
             {
                 Console.WriteLine("please Enter Your option :");//enter the option which perform
-                Console.WriteLine("1.Add \n2.Edit");
+                Console.WriteLine("1.Add \n2.Edit \n3.Delete");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -39,12 +39,18 @@
                         address.EditContact(firstName);
                         address.Display();
                         break;
+                    case 3:
+                        string FirstName = Console.ReadLine();
+                        address.DeleteContact(FirstName);
+                        address.Display();
+                        break;
                     default:
-                        Console.WriteLine("Please enter valid option");
+                        Console.WriteLine("Invalid choice");
                         break;
                 }
             }
         }
     }
-    
 }
+
+                
