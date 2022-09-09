@@ -4,18 +4,39 @@
     {
         static void Main(string[] args)
         {
-            Contact contact = new Contact()
+            bool flag = true;
+            AddressBook address = new AddressBook();//create a object address
+            while (flag)
             {
-                FirstName = "suraj",
-                LastName = "sinha",
-                Address = "Hadapsar",
-                City = "Pune",
-                State = "Maharashtra",
-                Zip = 411042,
-                Email = "xyz@gmail.com",
-            };
-            Console.WriteLine(contact.FirstName + "\n" + contact.LastName + "\n" + contact.Address + "\n" + contact.City + "\n" + contact.State + "\n" + contact.Zip + "\n" + contact.Email);
+                Console.WriteLine("please Enter Your option :");//enter the option which perform
+                Console.WriteLine("1.Add");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Contact contact = new Contact();//create contact object
+                        {
+                            Console.WriteLine("Enter the First Name");
+                            contact.FirstName = Console.ReadLine();
+                            Console.WriteLine("Enter the Last Name");
+                            contact.LastName = Console.ReadLine();
+                            Console.WriteLine("Enter the Address");
+                            contact.Address = Console.ReadLine();
+                            Console.WriteLine("Enter the City");
+                            contact.City = Console.ReadLine();
+                            Console.WriteLine("Enter the State");
+                            contact.State = Console.ReadLine();
+                            Console.WriteLine("Enter the Zip");
+                            contact.Zip = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Enter the Email");
+                            contact.Email = Console.ReadLine();
+                        }
+                        address.Addcontact(contact);// show add contact by objectname and methodname
+                        Console.ReadKey();
+                        break;
+                }
+            }
         }
     }
-    }
+    
 }
