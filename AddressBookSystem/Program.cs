@@ -9,7 +9,7 @@
             while (flag)
             {
                 Console.WriteLine("please Enter Your option :");//enter the option which perform
-                Console.WriteLine("1.Add");
+                Console.WriteLine("1.Add \n2.Edit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -33,6 +33,14 @@
                         }
                         address.Addcontact(contact);// show add contact by objectname and methodname
                         Console.ReadKey();
+                        break;
+                    case 2:
+                        string firstName = Console.ReadLine();
+                        address.EditContact(firstName);
+                        address.Display();
+                        break;
+                    default:
+                        Console.WriteLine("Please enter valid option");
                         break;
                 }
             }
