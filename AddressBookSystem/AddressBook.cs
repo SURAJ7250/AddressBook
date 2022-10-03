@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystem
 {
-    internal class AddressBook
+    public class AddressBook
     {
         List<Contact> contacts = new List<Contact>();//create a contacts of list
         Contact storeContact = new Contact();//create storecontact object for delete contact
