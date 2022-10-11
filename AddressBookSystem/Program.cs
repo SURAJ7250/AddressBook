@@ -1,15 +1,17 @@
 ﻿namespace AddressBookSystem
 {
-    internal class Program
+    public class Program
     {
+        const string filepath = @"C:\Users\Suraj Sinha\OneDrive\Desktop\Bridgelabz\AddressBook\AddressBookSystem\Contact.txt";
         static void Main(string[] args)
         {
             bool flag = true;
             AddressBook address = new AddressBook();//create a object address
+            List<Contact> contacts = new List<Contact>();
             while (flag)
             {
                 Console.WriteLine("please Enter Your option :");//enter the option which perform
-                Console.WriteLine("1.Add \n2.Edit \n3.Delete");
+                Console.WriteLine("1.Add \n2.Edit \n3.Delete \n 4.IO File");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -27,7 +29,7 @@
                             Console.WriteLine("Enter the State");
                             contact.State = Console.ReadLine();
                             Console.WriteLine("Enter the Zip");
-                            contact.Zip = Convert.ToInt32(Console.ReadLine());
+                            contact.Code = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine("Enter the Email");
                             contact.Email = Console.ReadLine();
                         }
@@ -36,13 +38,16 @@
                         break;
                     case 2:
                         string firstName = Console.ReadLine();
-                        address.EditContact(firstName);
-                        address.Display();
+                        address.EditContact(firstName,contacts);
+                        address.Display(contacts);
                         break;
                     case 3:
                         string FirstName = Console.ReadLine();
                         address.DeleteContact(FirstName);
-                        address.Display();
+                        address.Display(contacts);
+                        break;
+                    case 4:
+                        address.ReadFromStreamReader(filepath);
                         break;
                     default:
                         Console.WriteLine("Invalid choice");
