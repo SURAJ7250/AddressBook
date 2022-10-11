@@ -11,7 +11,7 @@
             while (flag)
             {
                 Console.WriteLine("please Enter Your option :");//enter the option which perform
-                Console.WriteLine("1.Add \n2.Edit \n3.Delete \n 4.IO File\n 5.Read write csv File");
+                Console.WriteLine("1.Add \n2.Edit \n3.Delete \n 4.IO File\n 5.Read write csv File\n 6.Read Write Json File");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -51,6 +51,9 @@
                         break;
                     case 5:
                         AddressBook.PersonCSVContact();
+                        break;
+                    case 6:
+                        AddressBook.ReadJsonFile();
                         break;
                     default:
                         Console.WriteLine("Invalid choice");

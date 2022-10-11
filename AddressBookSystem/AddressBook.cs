@@ -131,6 +131,25 @@ namespace AddressBookSystem
                 }
             }
         }
+        //UC15
+        //Read and Write JSON file
+        public static void ReadJsonFile()
+        {
+            string importfilepath = @"C:\Users\Suraj Sinha\OneDrive\Desktop\Bridgelabz\AddressBook\AddressBookSystem\Contact.json";
+            string jsonData = File.ReadAllText(importfilepath);
+            var jsonResult = JsonConvert.DeserializeObject<List<Contact>>(jsonData).ToList();
+            Console.WriteLine("Reading from Json file");
+            foreach (Contact contact in jsonResult)
+            {
+                Console.WriteLine("\t" + contact.FirstName);
+                Console.WriteLine("\t" + contact.LastName);
+                Console.WriteLine("\t" + contact.Address);
+                Console.WriteLine("\t" + contact.City);
+                Console.WriteLine("\t" + contact.State);
+                Console.WriteLine("\t" + contact.Code);
+                Console.WriteLine("\t" + contact.Email);
+            }
+        }
     }
 }
 
