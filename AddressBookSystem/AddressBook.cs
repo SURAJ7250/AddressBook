@@ -101,6 +101,36 @@ namespace AddressBookSystem
             }
             Console.ReadKey();
         }
+        //UC14
+        public static void PersonCSVContact()
+        {
+            string importFilepath = @"C:\Users\Suraj Sinha\OneDrive\Desktop\Bridgelabz\AddressBook\AddressBookSystem\contact.csv";
+            string exportfilepath = @"C:\Users\Suraj Sinha\OneDrive\Desktop\Bridgelabz\AddressBook\AddressBookSystem\address.csv";
+            //reading csv fie
+            using (var reader = new StreamReader(importFilepath))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var records = csv.GetRecords<Contact>().ToList();
+                Console.WriteLine("Read data successfully from addresses csv");
+                foreach (Contact contact in records)
+                {
+                    Console.WriteLine("\t" + contact.FirstName);
+                    Console.WriteLine("\t" + contact.LastName);
+                    Console.WriteLine("\t" + contact.Address);
+                    Console.WriteLine("\t" + contact.City);
+                    Console.WriteLine("\t" + contact.State);
+                    Console.WriteLine("\t" + contact.Code);
+                    Console.WriteLine("\t" + contact.Email);
+                }
+                Console.WriteLine("\n******************Now reading from csv file and write to csv file********");
+                //writing csv files
+                using (var writer = new StreamWriter(exportfilepath))
+                using (var csvExport = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csvExport.WriteRecords(records);
+                }
+            }
+        }
     }
 }
 
